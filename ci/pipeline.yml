@@ -1,0 +1,11 @@
+resources:
+- name: booklit
+  type: git
+  source: {uri: https://github.com/gowrisankar22/concoursesp}
+jobs:
+- name: reconfigure
+  plan:
+  - get: booklit
+    trigger: true
+  - set_pipeline: booklit
+    file: concoursesp/ci/pipeline.yml
